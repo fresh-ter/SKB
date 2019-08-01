@@ -181,8 +181,8 @@ void get_data_multiplexer()
     digitalWrite(MULTIPLEXER_S1, GET_BIT(i, 1));
     digitalWrite(MULTIPLEXER_S2, GET_BIT(i, 2));
 
-    b1[i] = digitalRead(MULTIPLEXER_D0);
-    b2[i] = digitalRead(MULTIPLEXER_D1);
+    b1[i] = analogRead(MULTIPLEXER_D0);
+    b2[i] = analogRead(MULTIPLEXER_D1);
   }
 }
 
