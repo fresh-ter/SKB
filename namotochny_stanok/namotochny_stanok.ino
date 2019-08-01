@@ -3,10 +3,10 @@
 #define DIR_PIN 9
 
 // задержка между шагами двигателя
-#define DELAY_STEPS 50
+#define DELAY_STEPS 1
 
 // количество шагов на 1 оборот
-#define STEP_ROUND 200
+#define STEP_ROUND 800
 
 
 #define MULTIPLEXER_S0 A0
@@ -28,6 +28,7 @@ char *menu_str[] =
 {
   "CONF",
   "WORK",
+  "END",
   "STOP"
 };
 
@@ -159,7 +160,7 @@ void abc()
   mode = 1;
   digitalWrite(DIR_PIN, LOW);
 
-  for (counter; counter <= counter_static; counter++)
+  for (counter; counter < counter_static; counter++)
   {
     if (counter == 0)
       time_start = millis() / 1000;
@@ -171,10 +172,12 @@ void abc()
     //  1 оборот
     for (int i = 0; i < STEP_ROUND; i++) {
       digitalWrite(STEP_PIN, HIGH);
+      delay(DELAY_STEPS);
       digitalWrite(STEP_PIN, LOW);
       delay(DELAY_STEPS);
     }
   }
+  mode++;
 }
 
 void get_data_multiplexer()
