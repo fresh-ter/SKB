@@ -111,7 +111,16 @@ void loop() {
     {
       abc();
     }
-    
+    else if (value == "reset")
+    {
+      counter_static = 0;
+      counter = 0;
+      time_start = 0;
+      time_end = 0;
+      
+      mode = 0;
+    }
+
     play_display();
   }
 
